@@ -1,0 +1,47 @@
+/* .calc-btn-row {
+  margin: 10px;
+} */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.center {
+  height: 100%;
+  position: relative;
+}
+
+.calc {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 25%;
+}
+
+.calc-btn-row > .btn {
+  width: 70px;
+  text-align: center;
+}
+
+.calc-btn-row:nth-child(7) > .btn:nth-child(1) {
+  width: 148px;
+}
+
+#angkacalc {
+  width: 90%;
+}
+
+#query {
+  text-align: right;
+  width: 85%;
+}
+
+#result {
+  text-align: right;
+  width: 84%;
+}
