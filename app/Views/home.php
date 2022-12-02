@@ -19,7 +19,6 @@
                 <div class="calc-btn-row">
                     <button class="btn btn-lg btn-secondary rounded-5 me-1 mb-2" onclick="deleteAll()">AC</button>
                     <button class="btn btn-lg btn-secondary rounded-5 me-1 mb-2" onclick="deleteOne()">DEL</button>
-                    <button class="btn btn-lg btn-secondary rounded-5 me-1 mb-2" onclick="addPrecent()">%</button>
                     <button class="btn btn-lg btn-warning rounded-5 mb-2" onclick="addDivided()">/</button>
                 </div>
     
@@ -69,7 +68,8 @@
 
     function deleteOne(){
         calc = calc.slice(0, -1);
-        document.getElementById('query').innerHTML = calc;
+        if(calc.length == 0) document.getElementById('query').innerHTML = "0";
+        else document.getElementById('query').innerHTML = calc;
     }
 
     function addNumber(number){
@@ -112,10 +112,8 @@
         let arrCount = []
         let counterNumber = 0;
         let counterCount = 0;
-        console.log("calc length = " + calc.length + "");
         for (let i = 0; i < calc.length; i++) {
             if(calc.charAt(i).match(reg)){
-                console.log("Masuk ke if, count = " + calc.charAt(i));
                 arrCount[counterCount] = calc.charAt(i);
                 counterCount++;
             }else{
@@ -123,13 +121,11 @@
                 let index = i;
                 let numberKeI = "";
                 while(index<calc.length){ //untuk mencari angka
-                    if(!calc.charAt(index).match(reg)){ //kalau bukan refex, berarti dia angka
-                        console.log("Calc ke " + index + " adalah angka " + calc.charAt(index));
+                    if(!calc.charAt(index).match(reg)){ //kalau bukan regex, berarti dia angka
                         numberKeI+=calc.charAt(index);
                         index++;
                         counter++;
                     }else{ //kalau dia regex, stop
-                        console.log("Calc ke " + index + " adalah count " + calc.charAt(index));
                         arrCount[counterCount] = calc.charAt(index);
                         counterCount++;
                         index = calc.length;
@@ -138,12 +134,9 @@
                 }
 
                 i+=counter;
-                console.log("Keluar while, number = " + numberKeI);
                 arrNumber[counterNumber] = parseFloat(numberKeI);
                 counterNumber++;
             }
-            // console.log(arrNumber);
-            console.log(arrCount);
         }
 
 

@@ -32,6 +32,10 @@ body {
   width: 148px;
 }
 
+.calc-btn-row:nth-child(3) > .btn:nth-child(2) {
+  width: 148px;
+}
+
 #angkacalc {
   width: 90%;
 }
